@@ -15,6 +15,7 @@
 		3FC8C14A1EFB993300A6ACE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC8C1481EFB993300A6ACE9 /* LaunchScreen.storyboard */; };
 		3FC8C1551EFB993300A6ACE9 /* PastClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC8C1541EFB993300A6ACE9 /* PastClockTests.swift */; };
 		3FC8C1601EFB993300A6ACE9 /* PastClockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC8C15F1EFB993300A6ACE9 /* PastClockUITests.swift */; };
+		3FC8C16E1EFB9BE300A6ACE9 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC8C16D1EFB9BE300A6ACE9 /* BeaconManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		3FC8C15B1EFB993300A6ACE9 /* PastClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PastClockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC8C15F1EFB993300A6ACE9 /* PastClockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastClockUITests.swift; sourceTree = "<group>"; };
 		3FC8C1611EFB993300A6ACE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FC8C16D1EFB9BE300A6ACE9 /* BeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				3FC8C13C1EFB993200A6ACE9 /* AppDelegate.swift */,
 				3FC8C13E1EFB993200A6ACE9 /* ViewController.swift */,
+				3FC8C16D1EFB9BE300A6ACE9 /* BeaconManager.swift */,
 				3FC8C1401EFB993200A6ACE9 /* Main.storyboard */,
 				3FC8C1461EFB993300A6ACE9 /* Assets.xcassets */,
 				3FC8C1481EFB993300A6ACE9 /* LaunchScreen.storyboard */,
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FC8C13F1EFB993200A6ACE9 /* ViewController.swift in Sources */,
+				3FC8C16E1EFB9BE300A6ACE9 /* BeaconManager.swift in Sources */,
 				3FC8C1451EFB993300A6ACE9 /* PastClock.xcdatamodeld in Sources */,
 				3FC8C13D1EFB993200A6ACE9 /* AppDelegate.swift in Sources */,
 			);
