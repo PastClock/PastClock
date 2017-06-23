@@ -51,7 +51,17 @@ struct BeaconID{
 
 class BeaconManager: NSObject,CLLocationManagerDelegate {
     
+    //csvファイル名
     var csvFileName = ""
+    var filePath = ""
+    
+    //書き込む内容
+    var contents: String?
+    
+    
+    //今検知しているbeacon
+    var detectedBeacon = ""
+    var timer: Timer!
     
     let locationManager = CLLocationManager()
     
@@ -182,6 +192,7 @@ class BeaconManager: NSObject,CLLocationManagerDelegate {
             
             if filteredBeacons.isEmpty
             {
+                self.detectedBeacon = String(0)
                 print("No beacons found nearby")
             }
             else{
@@ -192,9 +203,11 @@ class BeaconManager: NSObject,CLLocationManagerDelegate {
                 print(filteredBeacons[0].major)
                 print(filteredBeacons[0].minor)
                 
+                
                 if(filteredBeacons[0].rssi > -70)
                 {
-                    print("We found one!")
+                print("We found one!")
+                self.detectedBeacon = String(describing: filteredBeacons[0].major)
                 }
                 
                 if filteredBeacons.count > 1
@@ -206,6 +219,11 @@ class BeaconManager: NSObject,CLLocationManagerDelegate {
                     beaconsString = "beacon"
                 }
                 print("Found \(filteredBeacons.count) \(beaconsString).")
+                
+                //self.detectedBeacon = "現在" + String(describing: filteredBeacons[0].major)
+                
+                //self.timer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(self.writeContents), userInfo: nil, repeats: true)
+            
             }
         }
     }
@@ -226,6 +244,7 @@ class BeaconManager: NSObject,CLLocationManagerDelegate {
     // 検出範囲に入った時の関数
     // ここの関数をいじれば検出範囲に入った時どうするっていう機能をつけられる。
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+
         print("Hi,there,welcome to my world!")
     }
     
@@ -235,21 +254,135 @@ class BeaconManager: NSObject,CLLocationManagerDelegate {
         print("Goodbye, hope to see you again!")
     }
     
+    
+
+    
+    //csvファイルの日付
+    func dateForCsv(){
+        let csvDate = DateFormatter()
+        csvDate.dateFormat = "yyyyMMdd"
+        let now = Date()
+        //日付を元にファイル名作成
+        csvFileName = csvDate.string(from: now) + ".csv"
+    }
+
+    
     //Sandboxにファイルパスを作成
     func makeFilePath(){
-        let DateOfToday = DateFormatter()
-        DateOfToday.dateFormat = "yyytMMdd"
         
-        let today = Date()
-        
-        csvFileName = DateOfToday.string(from: today) + ".csv"
-        
-        let filePath = NSHomeDirectory() + "/Documents/" + csvFileName
+        dateForCsv()
+        //ファイルのパスを作成
+        filePath = NSHomeDirectory() + "/Documents/" + csvFileName
         
         print("書き込むファイルのパス: \(filePath)")
         
+        //時間取得
+        let formatterH = DateFormatter()
+        formatterH.dateFormat = "HH"
+        let hour = Date()
+        //分取得
+        let formatterM = DateFormatter()
+        formatterM.dateFormat = "mm"
+        let minutes = Date()
         
+        //時間を分表示
+        let time = Int(formatterH.string(from: hour))! * 60 + Int(formatterM.string(from: minutes))!
+
+        
+        let initialtext = String(time) + "," + "0"
+        
+        do {
+            try initialtext.write(toFile: filePath, atomically: true, encoding: String.Encoding.utf8)
+            
+        } catch let error as NSError {
+            print("failed to write: \(error)")
+            
+        }
+
     }
+    
+    
+    //ファイルの存在確認後、なければファイルを作成
+    //これもdelegateで呼び出される
+    func createFileAfterCheck(){
+        
+        dateForCsv()
+        
+        let DocumentFilePath: String = NSHomeDirectory() + "/Documents/"
+        
+        let path = NSString(string: DocumentFilePath + csvFileName)
+        
+        let checkValidation = FileManager.default
+        
+        if (checkValidation.fileExists(atPath: path as String)){
+            print("ファイルあり、追記開始");
+        }else{
+            print("ファイルが存在しない、新規ファイル作成")
+            makeFilePath()
+        }
+        return
+    }
+    
+    //タイマーで1分毎に処理
+    func timerForWrite() {
+        timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(self.writeContents), userInfo: nil, repeats: true)
+    }
+    
+    //csvファイルに書き込む処理
+    func writeContents() {
+        //時間取得
+        let formatterH = DateFormatter()
+        formatterH.dateFormat = "HH"
+        let hour = Date()
+        //分取得
+        let formatterM = DateFormatter()
+        formatterM.dateFormat = "mm"
+        let minutes = Date()
+        
+        //時間を分表示
+        let time = Int(formatterH.string(from: hour))! * 60 + Int(formatterM.string(from: minutes))!
+        
+        //保存するデータ
+        let csvData = String(time) + "," + detectedBeacon
+        
+        contents = csvData
+        print(contents!)
+        
+        //追記するファイルのURLを取得
+        dateForCsv()
+        let DocumentFilePath: String = NSHomeDirectory() + "/Documents/"
+        
+        if let documentDirectoryFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last {
+            let targetPath = documentDirectoryFileURL.appendingPathComponent(csvFileName)
+            let path = NSString(string: DocumentFilePath + csvFileName)
+            let checkValidation = FileManager.default
+            
+            //日付変更時の対策で、追記する際にファイルがなければ新しいファイルを作成
+            if (checkValidation.fileExists(atPath: path as String)){
+                appendCsv(fileURL: targetPath);
+                print("ファイルあり、追記開始")
+            }else{
+                print("ファイルナッシング")
+                makeFilePath()
+            }
+        }
+    }
+    
+    //改行してファイルの最後に書き込む処理
+    func appendCsv(fileURL: URL) {
+        do {
+            let fileHandle = try FileHandle(forWritingTo: fileURL)
+            
+            let stringToWrite = "\n" + contents!
+            
+            fileHandle.seekToEndOfFile()
+            fileHandle.write(stringToWrite.data(using: String.Encoding.utf8)!)
+            
+        } catch let error as NSError {
+            print("failed to append: \(error)")
+        }
 
-
+    
+    }
+    
 }
