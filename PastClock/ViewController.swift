@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         }catch {
             print(error)
         }
-        print(dataList)
+        //print(dataList)
         
         createPie()
         //print(BeaconIdList)
@@ -261,10 +261,13 @@ class ViewController: UIViewController {
             }
 
         }
+        //pieChartViewに追加する
+        
         
         self.pieChartView.segments = segments
         self.pieChartView2.segments2 = segments2
         
+        //リストを一旦空にする
         segments.removeAll()
         segments2.removeAll()
     

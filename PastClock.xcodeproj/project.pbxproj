@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2AF2BB829EE871C3ED245C79 /* Pods_PastClockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0780DCDE7EC3EEDB1CC27E97 /* Pods_PastClockTests.framework */; };
 		3F7B5BCD1F013E2500E3D59D /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7B5BCC1F013E2500E3D59D /* PieChartView.swift */; };
+		3F985D321F050F7A0033D7D0 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F985D311F050F7A0033D7D0 /* FileViewController.swift */; };
 		3FC8C13D1EFB993200A6ACE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC8C13C1EFB993200A6ACE9 /* AppDelegate.swift */; };
 		3FC8C13F1EFB993200A6ACE9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC8C13E1EFB993200A6ACE9 /* ViewController.swift */; };
 		3FC8C1421EFB993200A6ACE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC8C1401EFB993200A6ACE9 /* Main.storyboard */; };
@@ -46,6 +47,8 @@
 		0780DCDE7EC3EEDB1CC27E97 /* Pods_PastClockTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PastClockTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C3451524F913CDDDCFDC95 /* Pods-PastClockUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PastClockUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PastClockUITests/Pods-PastClockUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3F7B5BCC1F013E2500E3D59D /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		3F985D311F050F7A0033D7D0 /* FileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileViewController.swift; sourceTree = "<group>"; };
+		3F985D331F055B940033D7D0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3FC8C1391EFB993200A6ACE9 /* PastClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PastClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC8C13C1EFB993200A6ACE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FC8C13E1EFB993200A6ACE9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 				3FC8C16D1EFB9BE300A6ACE9 /* BeaconManager.swift */,
 				3F7B5BCC1F013E2500E3D59D /* PieChartView.swift */,
 				3FE10E6F1F0192470054D885 /* PieChartView2.swift */,
+				3F985D311F050F7A0033D7D0 /* FileViewController.swift */,
 				3FC8C1401EFB993200A6ACE9 /* Main.storyboard */,
 				3FC8C1461EFB993300A6ACE9 /* Assets.xcassets */,
 				3FC8C1481EFB993300A6ACE9 /* LaunchScreen.storyboard */,
@@ -170,6 +174,7 @@
 		C088EF47C986A7682451B6EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F985D331F055B940033D7D0 /* MessageUI.framework */,
 				00672656494A4D4D8ACAB383 /* Pods_PastClock.framework */,
 				0780DCDE7EC3EEDB1CC27E97 /* Pods_PastClockTests.framework */,
 				89EB980B0553BB8EE2EDC45E /* Pods_PastClockUITests.framework */,
@@ -467,6 +472,7 @@
 				3FE10E701F0192470054D885 /* PieChartView2.swift in Sources */,
 				3FC8C1451EFB993300A6ACE9 /* PastClock.xcdatamodeld in Sources */,
 				3FC8C13D1EFB993200A6ACE9 /* AppDelegate.swift in Sources */,
+				3F985D321F050F7A0033D7D0 /* FileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
