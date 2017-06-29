@@ -15,12 +15,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var pieChartView: PieChartView!
     @IBOutlet weak var pieChartView2: PieChartView2!
     
+    @IBOutlet weak var beaconPlace: UILabel!
+    
+    
+    
     let beaconFileController = BeaconManager()
     var fileName = ""
     
+    //csvファイルの中身を格納したファイル
     var dataList:[String] = []
+    //dataListの中身を時間とBeaconIdに分解した配列
     var unitList:[String] = []
-    
     
     var segments = [Segment]()
     var segments2 = [Segment2]()
@@ -28,6 +33,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         getCsvData()
         
     }
@@ -62,16 +68,17 @@ class ViewController: UIViewController {
         }catch {
             print(error)
         }
-        //print(dataList)
+        print(dataList)
         
         createPie()
         //print(BeaconIdList)
         
-        
+        beaconPlace.text = dataList.last!
+
         
     }
     
-    //時刻とBeaconIDを１セットで分解して、角度と色を決定させる関数
+    //DataListから取り出して時刻とBeaconIDを１セットで分解して、角度と色を決定させる関数
     func createPie() {
         
         let numberOfList = dataList.count
@@ -80,24 +87,29 @@ class ViewController: UIViewController {
         for i in 0..<numberOfList{
             
             //午前中だけ
-            if i <= 720 {
             
-                unitString = dataList[i]
-                unitList = unitString.components(separatedBy: ",")
-                //print(unitList)
+            unitString = dataList[i]
+            unitList = unitString.components(separatedBy: ",")
+            //print(unitList)
+                
+            //unitListの1列目(時間)をDouble型に直して角度を決定
+            let minutes = Double(unitList[0])!
             
-                let i = Double(unitList[0])!
-                let Angle = i / 720 * 360
+            //午前中の場合
+            if minutes <= 720 {
+                
+                let Angle = minutes / 720 * 360
             
-            
+                //unitListの２列目(BeaconId)をInt型に直して色を決定
                 let value = Int(unitList[1])
+                //基本色を白に
                 var Color:UIColor = UIColor.white
                 var beaconId = 0
-            
+                //エラー処理
                 if value != nil{
                     beaconId = value!
                 }
-                
+                //BeaconIdを色に振り分け
                 if beaconId == 1{
                     Color = UIColor.flatRed
                 }
@@ -160,18 +172,17 @@ class ViewController: UIViewController {
                 }
 
             
-                //print(Color)
+                //print("am" + String(Angle) + String(describing: Color))
                 segments.append(Segment(color: Color, angle: CGFloat(Angle)))
                 
-            //午後から
-            }
-            else{
-                unitString = dataList[i]
-                unitList = unitString.components(separatedBy: ",")
-                //print(unitList)
                 
-                let i = Double(unitList[0])!
-                let Angle = (i - 720) / 720 * 360
+            
+            }
+                
+            //午後から
+            else{
+                
+                let Angle = (minutes - 720) / 720 * 360
                 
                 
                 let value = Int(unitList[1])
@@ -243,7 +254,9 @@ class ViewController: UIViewController {
                     Color = UIColor.flatBlue
                 }
 
+            //print("pm" + String(Angle) + String(describing: Color))
             segments2.append(Segment2(color: Color, angle: CGFloat(Angle)))
+            
             
             }
 
@@ -251,5 +264,20 @@ class ViewController: UIViewController {
         
         self.pieChartView.segments = segments
         self.pieChartView2.segments2 = segments2
+        
+        segments.removeAll()
+        segments2.removeAll()
+    
     }
+    
+    @IBAction func upload(_ sender: Any) {
+        
+        getCsvData()
+        
+    }
+    
+    func removeList() {
+        
+    }
+    
 }

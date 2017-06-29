@@ -346,7 +346,7 @@ class BeaconManager: NSObject,CLLocationManagerDelegate {
         let csvData = String(time) + "," + detectedBeacon
         
         contents = csvData
-        print(contents!)
+        print("csvファイルに保存" + contents!)
         
         //追記するファイルのURLを取得
         dateForCsv()
