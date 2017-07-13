@@ -220,6 +220,8 @@ class BeaconManager: NSObject,CLLocationManagerDelegate {
                 }
                 print("Found \(filteredBeacons.count) \(beaconsString).")
                 
+                self.writeContents()
+                
                 //self.detectedBeacon = "現在" + String(describing: filteredBeacons[0].major)
                 
                 //self.timer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(self.writeContents), userInfo: nil, repeats: true)
@@ -284,9 +286,14 @@ class BeaconManager: NSObject,CLLocationManagerDelegate {
         let formatterM = DateFormatter()
         formatterM.dateFormat = "mm"
         let minutes = Date()
+        //秒取得
+        let formatterS = DateFormatter()
+        formatterS.dateFormat = "ss"
+        let seconds = Date()
         
-        //時間を分表示
-        let time = Int(formatterH.string(from: hour))! * 60 + Int(formatterM.string(from: minutes))!
+        
+        //時間を秒表示
+        let time = Int(formatterH.string(from: hour))! * 3600 + Int(formatterM.string(from: minutes))! * 60 + Int(formatterS.string(from: seconds))!
 
         
         let initialtext = String(time) + "," + "0"
@@ -324,9 +331,9 @@ class BeaconManager: NSObject,CLLocationManagerDelegate {
     }
     
     //タイマーで1分毎に処理
-    func timerForWrite() {
-        timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(self.writeContents), userInfo: nil, repeats: true)
-    }
+    //func timerForWrite() {
+     //   timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(self.writeContents), userInfo: nil, repeats: true)
+    //}
     
     //csvファイルに書き込む処理
     func writeContents() {
@@ -338,10 +345,14 @@ class BeaconManager: NSObject,CLLocationManagerDelegate {
         let formatterM = DateFormatter()
         formatterM.dateFormat = "mm"
         let minutes = Date()
+        //秒取得
+        let formatterS = DateFormatter()
+        formatterS.dateFormat = "ss"
+        let seconds = Date()
         
-        //時間を分表示
-        let time = Int(formatterH.string(from: hour))! * 60 + Int(formatterM.string(from: minutes))!
         
+        //時間を秒表示
+        let time = Int(formatterH.string(from: hour))! * 3600 + Int(formatterM.string(from: minutes))! * 60 + Int(formatterS.string(from: seconds))!
         //保存するデータ
         let csvData = String(time) + "," + detectedBeacon
         
@@ -384,5 +395,7 @@ class BeaconManager: NSObject,CLLocationManagerDelegate {
 
     
     }
+    var List1:[Int] = []
+    
     
 }

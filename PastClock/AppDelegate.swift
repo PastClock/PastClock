@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         // Override point for customization after application launch.
         beaconManager.createFileAfterCheck()
         beaconManager.runBeacon()
-        beaconManager.timerForWrite()
+        //beaconManager.timerForWrite()
         
         return true
     }

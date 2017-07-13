@@ -93,9 +93,11 @@ class ViewController: UIViewController {
             //print(unitList)
                 
             //unitListの1列目(時間)をDouble型に直して角度を決定
-            let minutes = Double(unitList[0])!
+            let seconds = Double(unitList[0])!
             
+            let minutes = floor(seconds / 60)
             //午前中の場合
+
             if minutes <= 720 {
                 
                 let Angle = minutes / 720 * 360
@@ -110,65 +112,83 @@ class ViewController: UIViewController {
                     beaconId = value!
                 }
                 //BeaconIdを色に振り分け
-                if beaconId == 1{
-                    Color = UIColor.flatRed
+                if beaconId == 1{   //食堂
+                    Color = UIColor.flatOrangeDark
+                    
                 }
-                if beaconId == 2{
-                    Color = UIColor.flatOrange
+                if beaconId == 2{   //コンビニ
+                    
+                    Color = UIColor.flatYellowDark
                 }
-                if beaconId == 3{
-                    Color = UIColor.flatYellow
+                if beaconId == 3{   //バスケコート
+                    
+                    Color = UIColor.flatMaroon
                 }
-                if beaconId == 4{
+                if beaconId == 4{   //階段
                     Color = UIColor.flatSand
                 }
-                if beaconId == 5{
-                    Color = UIColor.flatNavyBlue
+                if beaconId == 5{   //情報入り口
+                    
+                    Color = UIColor.flatRed
                 }
-                if beaconId == 6{
-                    Color = UIColor.flatMagenta
-                }
-                if beaconId == 7{
-                    Color = UIColor.flatWatermelon
-                }
-                if beaconId == 8{
-                    Color = UIColor.flatSkyBlue
-                }
-                if beaconId == 9{
-                    Color = UIColor.flatGreen
-                }
-                if beaconId == 10{
-                    Color = UIColor.flatMint
-                }
-                if beaconId == 11{
-                    Color = UIColor.flatForestGreen
-                }
-                if beaconId == 12{
-                    Color = UIColor.flatPurple
-                }
-                if beaconId == 13{
-                    Color = UIColor.flatBrown
-                }
-                if beaconId == 14{
-                    Color = UIColor.flatPlum
-                }
-                if beaconId == 15{
-                    Color = UIColor.flatTeal
-                }
-                if beaconId == 16{
-                    Color = UIColor.flatLime
-                }
-                if beaconId == 17{
+                if beaconId == 6{   //ジム
+                    
                     Color = UIColor.flatPink
                 }
-                if beaconId == 18{
-                    Color = UIColor.flatCoffee
+                if beaconId == 7{   //ユビ研学生室
+                    Color = UIColor.flatWatermelon
                 }
-                if beaconId == 19{
+                if beaconId == 8{   //L1
+                    
+                    Color = UIColor.flatSkyBlueDark
+                }
+                if beaconId == 9{   //L2
+                    
+                    Color = UIColor.flatBlueDark
+                }
+                if beaconId == 10{  //L3
+                    
+                    Color = UIColor.flatPurpleDark
+                }
+                if beaconId == 11{  //事務室
+                    
+                    Color = UIColor.flatPlum
+                }
+                if beaconId == 12{  //食堂2
+                    
+                    Color = UIColor.flatOrangeDark
+                }
+                if beaconId == 13{  //学生寮
+                    
                     Color = UIColor.flatPowderBlue
                 }
-                if beaconId == 20{
-                    Color = UIColor.flatBlue
+                if beaconId == 14{  //林研学生室
+                    
+                    Color = UIColor.flatWatermelonDark
+                }
+                if beaconId == 15{  //林研ミーティング室
+                    
+                    Color = UIColor.flatMintDark
+                }
+                if beaconId == 16{  //林研トイレ
+                    
+                    Color = UIColor.flatWhiteDark
+                }
+                if beaconId == 17{  //タバコ
+                    
+                    Color = UIColor.flatLime
+                }
+                if beaconId == 18{  //ユビ研トイレ
+                    
+                    Color = UIColor.flatWhite
+                }
+                if beaconId == 19{  //エレベータ
+                    
+                    Color = UIColor.flatCoffee
+                }
+                if beaconId == 20{  //ユビ研ミーティング室
+                    
+                    Color = UIColor.flatMint
                 }
 
             
@@ -193,65 +213,83 @@ class ViewController: UIViewController {
                     beaconId = value!
                 }
                 
-                if beaconId == 1{
-                    Color = UIColor.flatRed
+                if beaconId == 1{   //食堂
+                    Color = UIColor.flatOrangeDark
+                    
                 }
-                if beaconId == 2{
-                    Color = UIColor.flatOrange
+                if beaconId == 2{   //コンビニ
+                    
+                    Color = UIColor.flatYellowDark
                 }
-                if beaconId == 3{
-                    Color = UIColor.flatYellow
+                if beaconId == 3{   //バスケコート
+                    
+                    Color = UIColor.flatMaroon
                 }
-                if beaconId == 4{
+                if beaconId == 4{   //階段
                     Color = UIColor.flatSand
                 }
-                if beaconId == 5{
-                    Color = UIColor.flatNavyBlue
+                if beaconId == 5{   //情報入り口
+                    
+                    Color = UIColor.flatRed
                 }
-                if beaconId == 6{
-                    Color = UIColor.flatMagenta
-                }
-                if beaconId == 7{
-                    Color = UIColor.flatWatermelon
-                }
-                if beaconId == 8{
-                    Color = UIColor.flatSkyBlue
-                }
-                if beaconId == 9{
-                    Color = UIColor.flatGreen
-                }
-                if beaconId == 10{
-                    Color = UIColor.flatMint
-                }
-                if beaconId == 11{
-                    Color = UIColor.flatForestGreen
-                }
-                if beaconId == 12{
-                    Color = UIColor.flatPurple
-                }
-                if beaconId == 13{
-                    Color = UIColor.flatBrown
-                }
-                if beaconId == 14{
-                    Color = UIColor.flatPlum
-                }
-                if beaconId == 15{
-                    Color = UIColor.flatTeal
-                }
-                if beaconId == 16{
-                    Color = UIColor.flatLime
-                }
-                if beaconId == 17{
+                if beaconId == 6{   //ジム
+                    
                     Color = UIColor.flatPink
                 }
-                if beaconId == 18{
-                    Color = UIColor.flatCoffee
+                if beaconId == 7{   //ユビ研学生室
+                    Color = UIColor.flatWatermelon
                 }
-                if beaconId == 19{
+                if beaconId == 8{   //L1
+                    
+                    Color = UIColor.flatSkyBlueDark
+                }
+                if beaconId == 9{   //L2
+                    
+                    Color = UIColor.flatBlueDark
+                }
+                if beaconId == 10{  //L3
+                    
+                    Color = UIColor.flatPurpleDark
+                }
+                if beaconId == 11{  //事務室
+                    
+                    Color = UIColor.flatPlum
+                }
+                if beaconId == 12{  //バス
+                    
+                    Color = UIColor.flatLime
+                }
+                if beaconId == 13{  //学生寮
+                    
                     Color = UIColor.flatPowderBlue
                 }
-                if beaconId == 20{
-                    Color = UIColor.flatBlue
+                if beaconId == 14{  //林研学生室
+                    
+                    Color = UIColor.flatWatermelonDark
+                }
+                if beaconId == 15{  //林研ミーティング室
+                    
+                    Color = UIColor.flatMintDark
+                }
+                if beaconId == 16{  //林研トイレ
+                    
+                    Color = UIColor.flatPowderBlue
+                }
+                if beaconId == 17{  //タバコ
+                    
+                    Color = UIColor.flatNavyBlueDark
+                }
+                if beaconId == 18{  //ユビ研トイレ
+                    
+                    Color = UIColor.flatPowderBlueDark
+                }
+                if beaconId == 19{  //エレベータ
+                    
+                    Color = UIColor.flatCoffee
+                }
+                if beaconId == 20{  //ユビ研ミーティング室
+                    
+                    Color = UIColor.flatMint
                 }
 
             //print("pm" + String(Angle) + String(describing: Color))
