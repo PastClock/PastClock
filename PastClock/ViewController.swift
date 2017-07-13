@@ -33,6 +33,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // タイトルをセット
+        self.navigationItem.title = "today"
+        
+        // フォント種をTime New Roman、サイズを10に指定
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Baskerville", size: 30)!]
+        
        
         getCsvData()
         
@@ -105,7 +112,7 @@ class ViewController: UIViewController {
                 //unitListの２列目(BeaconId)をInt型に直して色を決定
                 let value = Int(unitList[1])
                 //基本色を白に
-                var Color:UIColor = UIColor.white
+                var Color:UIColor = UIColor.black
                 var beaconId = 0
                 //エラー処理
                 if value != nil{
@@ -172,7 +179,7 @@ class ViewController: UIViewController {
                 }
                 if beaconId == 16{  //林研トイレ
                     
-                    Color = UIColor.flatWhiteDark
+                    Color = UIColor.flatPowderBlueDark
                 }
                 if beaconId == 17{  //タバコ
                     
@@ -180,7 +187,7 @@ class ViewController: UIViewController {
                 }
                 if beaconId == 18{  //ユビ研トイレ
                     
-                    Color = UIColor.flatWhite
+                    Color = UIColor.flatPowderBlue
                 }
                 if beaconId == 19{  //エレベータ
                     
@@ -206,7 +213,7 @@ class ViewController: UIViewController {
                 
                 
                 let value = Int(unitList[1])
-                var Color:UIColor = UIColor.white
+                var Color:UIColor = UIColor.black
                 var beaconId = 0
                 
                 if value != nil{
@@ -255,9 +262,9 @@ class ViewController: UIViewController {
                     
                     Color = UIColor.flatPlum
                 }
-                if beaconId == 12{  //バス
+                if beaconId == 12{  //食堂2
                     
-                    Color = UIColor.flatLime
+                    Color = UIColor.flatOrangeDark
                 }
                 if beaconId == 13{  //学生寮
                     
@@ -273,15 +280,15 @@ class ViewController: UIViewController {
                 }
                 if beaconId == 16{  //林研トイレ
                     
-                    Color = UIColor.flatPowderBlue
+                    Color = UIColor.flatPowderBlueDark
                 }
                 if beaconId == 17{  //タバコ
                     
-                    Color = UIColor.flatNavyBlueDark
+                    Color = UIColor.flatLime
                 }
                 if beaconId == 18{  //ユビ研トイレ
                     
-                    Color = UIColor.flatPowderBlueDark
+                    Color = UIColor.flatPowderBlue
                 }
                 if beaconId == 19{  //エレベータ
                     
