@@ -13,6 +13,9 @@ class FileViewController: UIViewController, UITableViewDelegate, UITableViewData
     let dateArray = [0,24,48,72,96,120,144]
     var csvFiles:[String] = []
     
+    //csvの中身
+    var csvData:[String] = []
+    
     /// セルの個数を指定するデリゲートメソッド（必須）
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return csvFiles.count
@@ -34,8 +37,39 @@ class FileViewController: UIViewController, UITableViewDelegate, UITableViewData
     /// セルが選択された時に呼ばれるデリゲートメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("セル番号：\(indexPath.row) セルの内容：\(csvFiles[indexPath.row])")
+        
+        do {
+            //取り出すファイルのパス
+            let csvPath = NSHomeDirectory() + "/Documents/" + csvFiles[indexPath.row]
+            
+            let csvDatafromFile = try String(contentsOfFile:csvPath, encoding:String.Encoding.utf8)
+            
+            //print(csvDatafromFile)
+            
+            //csvファイルの中身を改行区切りで、csvDataに格納
+            csvData = csvDatafromFile.components(separatedBy: "\n")
+            
+            let documentInteraction = UIDocumentInteractionController(url: URL(fileURLWithPath: csvPath))
+            
+            if !documentInteraction.presentOpenInMenu(from: self.view.frame, in: self.view, animated: true) {
+                // 送信できるアプリが見つからなかった時の処理
+                let alert = UIAlertController(title: "送信失敗", message: "ファイルを送れるアプリが見つかりません", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+            print(csvData)
+            
+        }catch {
+            print(error)
+
+        
+        
+        }
+        
     }
     
+    //Viewが呼ばれるたびに一週間分のfie文字列作成
     func getDate() {
         
         let fmt = DateFormatter()

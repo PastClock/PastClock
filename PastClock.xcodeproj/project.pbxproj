@@ -26,6 +26,7 @@
 		3FF513271F186526007E7524 /* AmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF513261F186526007E7524 /* AmView.swift */; };
 		3FF513291F186533007E7524 /* PmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF513281F186533007E7524 /* PmView.swift */; };
 		3FF5132B1F186676007E7524 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5132A1F186676007E7524 /* MapView.swift */; };
+		3FF5132C1F1881F4007E7524 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F985D331F055B940033D7D0 /* MessageUI.framework */; };
 		92FCB318EEF387C48C2ACDDF /* Pods_PastClockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EB980B0553BB8EE2EDC45E /* Pods_PastClockUITests.framework */; };
 		FA5E2E27AE46D8199009E16F /* Pods_PastClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00672656494A4D4D8ACAB383 /* Pods_PastClock.framework */; };
 /* End PBXBuildFile section */
@@ -89,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FF5132C1F1881F4007E7524 /* MessageUI.framework in Frameworks */,
 				3FF513211F178B70007E7524 /* AVFoundation.framework in Frameworks */,
 				FA5E2E27AE46D8199009E16F /* Pods_PastClock.framework in Frameworks */,
 			);
@@ -146,9 +148,9 @@
 				3F985D311F050F7A0033D7D0 /* FileViewController.swift */,
 				3FF5131E1F178B4D007E7524 /* launchViewController.swift */,
 				3FF5132A1F186676007E7524 /* MapView.swift */,
-				3FC8C1401EFB993200A6ACE9 /* Main.storyboard */,
 				3FF513261F186526007E7524 /* AmView.swift */,
 				3FF513281F186533007E7524 /* PmView.swift */,
+				3FC8C1401EFB993200A6ACE9 /* Main.storyboard */,
 				3FC8C1461EFB993300A6ACE9 /* Assets.xcassets */,
 				3FF513221F183B3A007E7524 /* clock.mp3 */,
 				3FC8C1481EFB993300A6ACE9 /* LaunchScreen.storyboard */,
