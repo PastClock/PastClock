@@ -23,6 +23,9 @@
 		3FF5131F1F178B4D007E7524 /* launchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5131E1F178B4D007E7524 /* launchViewController.swift */; };
 		3FF513211F178B70007E7524 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF513201F178B70007E7524 /* AVFoundation.framework */; };
 		3FF513231F183B3A007E7524 /* clock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FF513221F183B3A007E7524 /* clock.mp3 */; };
+		3FF513271F186526007E7524 /* AmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF513261F186526007E7524 /* AmView.swift */; };
+		3FF513291F186533007E7524 /* PmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF513281F186533007E7524 /* PmView.swift */; };
+		3FF5132B1F186676007E7524 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5132A1F186676007E7524 /* MapView.swift */; };
 		92FCB318EEF387C48C2ACDDF /* Pods_PastClockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EB980B0553BB8EE2EDC45E /* Pods_PastClockUITests.framework */; };
 		FA5E2E27AE46D8199009E16F /* Pods_PastClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00672656494A4D4D8ACAB383 /* Pods_PastClock.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +74,9 @@
 		3FF5131E1F178B4D007E7524 /* launchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = launchViewController.swift; sourceTree = "<group>"; };
 		3FF513201F178B70007E7524 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3FF513221F183B3A007E7524 /* clock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = clock.mp3; sourceTree = "<group>"; };
+		3FF513261F186526007E7524 /* AmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmView.swift; sourceTree = "<group>"; };
+		3FF513281F186533007E7524 /* PmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PmView.swift; sourceTree = "<group>"; };
+		3FF5132A1F186676007E7524 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		733D3A9AE908E21C0A753A76 /* Pods-PastClockUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PastClockUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PastClockUITests/Pods-PastClockUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		81EB497D466B78DC02756506 /* Pods-PastClock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PastClock.release.xcconfig"; path = "Pods/Target Support Files/Pods-PastClock/Pods-PastClock.release.xcconfig"; sourceTree = "<group>"; };
 		89EB980B0553BB8EE2EDC45E /* Pods_PastClockUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PastClockUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,7 +145,10 @@
 				3FE10E6F1F0192470054D885 /* PieChartView2.swift */,
 				3F985D311F050F7A0033D7D0 /* FileViewController.swift */,
 				3FF5131E1F178B4D007E7524 /* launchViewController.swift */,
+				3FF5132A1F186676007E7524 /* MapView.swift */,
 				3FC8C1401EFB993200A6ACE9 /* Main.storyboard */,
+				3FF513261F186526007E7524 /* AmView.swift */,
+				3FF513281F186533007E7524 /* PmView.swift */,
 				3FC8C1461EFB993300A6ACE9 /* Assets.xcassets */,
 				3FF513221F183B3A007E7524 /* clock.mp3 */,
 				3FC8C1481EFB993300A6ACE9 /* LaunchScreen.storyboard */,
@@ -479,10 +488,13 @@
 			files = (
 				3FC8C13F1EFB993200A6ACE9 /* ViewController.swift in Sources */,
 				3F7B5BCD1F013E2500E3D59D /* PieChartView.swift in Sources */,
+				3FF513271F186526007E7524 /* AmView.swift in Sources */,
+				3FF5132B1F186676007E7524 /* MapView.swift in Sources */,
 				3FC8C16E1EFB9BE300A6ACE9 /* BeaconManager.swift in Sources */,
 				3FE10E701F0192470054D885 /* PieChartView2.swift in Sources */,
 				3FC8C1451EFB993300A6ACE9 /* PastClock.xcdatamodeld in Sources */,
 				3FC8C13D1EFB993200A6ACE9 /* AppDelegate.swift in Sources */,
+				3FF513291F186533007E7524 /* PmView.swift in Sources */,
 				3F985D321F050F7A0033D7D0 /* FileViewController.swift in Sources */,
 				3FF5131F1F178B4D007E7524 /* launchViewController.swift in Sources */,
 			);

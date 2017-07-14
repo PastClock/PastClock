@@ -7,6 +7,9 @@ target 'PastClock' do
 
   # Pods for PastClock
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+  
+  source 'https://github.com/CocoaPods/Specs.git'
+  pod 'GestureRecognizerClosures', '~> 3' 
 
   target 'PastClockTests' do
     inherit! :search_paths
