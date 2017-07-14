@@ -203,11 +203,12 @@ class BeaconManager: NSObject,CLLocationManagerDelegate {
                 print(filteredBeacons[0].major)
                 print(filteredBeacons[0].minor)
                 
+                self.detectedBeacon = String(describing: filteredBeacons[0].major)
+
                 
                 if(filteredBeacons[0].rssi > -70)
                 {
                 print("We found one!")
-                self.detectedBeacon = String(describing: filteredBeacons[0].major)
                 }
                 
                 if filteredBeacons.count > 1
