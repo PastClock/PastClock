@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         // タイトルをセット
         self.navigationItem.title = "today"
         
-        // フォント種をTime New Roman、サイズを10に指定
+        // フォント種サイズ指定
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Baskerville", size: 30)!]
         
        

@@ -40,7 +40,8 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="oAj-XB-T70" kind="show" id="dxJ-Ad-dgl"/>
+                                    <action selector="startbutton:" destination="Atu-5w-GA9" eventType="touchUpInside" id="nre-xX-Xgg"/>
+                                    <segue destination="oAj-XB-T70" kind="presentation" modalTransitionStyle="flipHorizontal" id="dxJ-Ad-dgl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -67,6 +68,7 @@
         <scene sceneID="oyM-qG-GkU">
             <objects>
                 <navigationController id="oAj-XB-T70" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Jad-N9-De9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oLw-A3-iDu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

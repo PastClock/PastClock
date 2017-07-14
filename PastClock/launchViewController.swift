@@ -12,34 +12,39 @@ import AVFoundation
 class launchViewController: UIViewController {
     
     var audioPlayerInstance : AVAudioPlayer! = nil  // 再生するサウンドのインスタンス
+    
+    @IBAction func startbutton(_ sender: Any) {
+        audioPlayerInstance.stop()
+    }
 
     @IBOutlet weak var imageClock: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //最初にアニメ終了後に表示するimageを設定しておく
-        imageClock.image = UIImage(named: "18clock")
+        imageClock.image = UIImage(named: "clockimage.018")
         //アニメのコマ設定
         let imageArray:[UIImage] = [
-            UIImage(named: "0clock")!,
-            UIImage(named: "1clock")!,
-            UIImage(named: "2clock")!,
-            UIImage(named: "3clock")!,
-            UIImage(named: "4clock")!,
-            UIImage(named: "5clock")!,
-            UIImage(named: "6clock")!,
-            UIImage(named: "7clock")!,
-            UIImage(named: "8clock")!,
-            UIImage(named: "9clock")!,
-            UIImage(named: "10clock")!,
-            UIImage(named: "11clock")!,
-            UIImage(named: "12clock")!,
-            UIImage(named: "13clock")!,
-            UIImage(named: "14clock")!,
-            UIImage(named: "15clock")!,
-            UIImage(named: "16clock")!,
-            UIImage(named: "17clock")!,
-            UIImage(named: "18clock")!,
+            UIImage(named: "clockimage.001")!,
+            UIImage(named: "clockimage.002")!,
+            UIImage(named: "clockimage.003")!,
+            UIImage(named: "clockimage.004")!,
+            UIImage(named: "clockimage.005")!,
+            UIImage(named: "clockimage.006")!,
+            UIImage(named: "clockimage.007")!,
+            UIImage(named: "clockimage.008")!,
+            UIImage(named: "clockimage.009")!,
+            UIImage(named: "clockimage.010")!,
+            UIImage(named: "clockimage.011")!,
+            UIImage(named: "clockimage.012")!,
+            UIImage(named: "clockimage.013")!,
+            UIImage(named: "clockimage.014")!,
+            UIImage(named: "clockimage.015")!,
+            UIImage(named: "clockimage.016")!,
+            UIImage(named: "clockimage.017")!,
+            UIImage(named: "clockimage.018")!,
+            
+            
             
         ]
         imageClock.animationImages = imageArray
